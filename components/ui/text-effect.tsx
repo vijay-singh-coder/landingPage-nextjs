@@ -176,7 +176,8 @@ const createVariantsWithTransition = (
   transition?: Transition & { exit?: Transition }
 ): Variants => {
   if (!transition) return baseVariants;
-
+  
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { exit: _, ...mainTransition } = transition;
 
   return {
@@ -234,12 +235,12 @@ export function TextEffect({
 
   const customStagger = hasTransition(variants?.container?.visible ?? {})
     ? (variants?.container?.visible as TargetAndTransition).transition
-        ?.staggerChildren
+      ?.staggerChildren
     : undefined;
 
   const customDelay = hasTransition(variants?.container?.visible ?? {})
     ? (variants?.container?.visible as TargetAndTransition).transition
-        ?.delayChildren
+      ?.delayChildren
     : undefined;
 
   const computedVariants = {
